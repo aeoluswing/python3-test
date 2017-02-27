@@ -12,52 +12,24 @@
 import sys
 import xml.sax.saxutils
 
-def process_options():
-    maxwidth_arg = "maxwidth="
-    format_arg = "format="
-    maxwidth = 100
-    format = ".0f"
-    for arg in sys.argv[1:]:
-        if arg in ["-h", "--help"]:
-            print("""\
-usage:
-csv2html.py [maxwidth=int] [format=str] < infile.csv > outfile.html
-
-maxwidth is an optional integer; if specified, it sets the maximum
-number of characters that can be output for string fields,
-otherwise a default of {0} characters is used.
-
-format is the format to use for numbers; if not specified it
-defaults to "{1}".""".format(maxwidth, format))
-            return None, None
-        elif arg.startswith(maxwidth_arg):
-            try:
-                maxwidth = int(arg[len(maxwidth_arg):])
-            except ValueError:
-                pass
-        elif arg.startswith(format_arg):
-            format = arg[len(format_arg):]
-    return maxwidth, format
-
 def main():
-    maxwidth, format = process_options()
-    if maxwidth is not None:
-        print_start()
-        count = 0
-        while True:
-            try:
-                line = input()
-                if count == 0:
-                    color = "lightgreen"
-                elif count % 2:
-                    color = "white"
-                else:
-                    color = "lightyellow"
-                print_line(line, color, maxwidth)
-                count += 1
-            except EOFError:
-                break
-        print_end()
+    maxwidth = 100
+    print_start()
+    count = 0
+    while True:
+        try:
+            line = input()
+            if count == 0:
+                color = "lightgreen"
+            elif count % 2:
+                color = "white"
+            else:
+                color = "lightyellow"
+            print_line(line, color, maxwidth)
+            count += 1
+        except EOFError:
+            break
+    print_end()
 
 def print_start():
     print("<table border='1'>")
