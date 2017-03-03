@@ -181,8 +181,6 @@ def main():
         print("Cancelled")
         return
 
-    #redirect to file data/filename
-
     while True:
         print_list(items)
         choice = get_choice(items,dirty)
