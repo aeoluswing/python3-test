@@ -1,0 +1,9 @@
+This module provides a few string manipulation functions.
+
+>>> from TextUtil import *
+>>> is_balanced("(Python (is (not (lisp))))")
+True
+>>> shorten("The Crossing", 10)
+'The Cro...'
+>>> simplify(" some    text    with  spurious  whitespace  ")
+'some text with spurious whitespace'
