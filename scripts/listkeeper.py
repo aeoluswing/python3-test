@@ -15,9 +15,10 @@ YES = set({"y","yes"})
 
 def choose_file():
     enter_filename = False
+    filepath = "../data"
     print("\nList Keeper\n")
 
-    files = [x for x in  os.listdir("../data") if x.endswith(".lst")]
+    files = [x for x in  os.listdir(filepath) if x.endswith(".lst")]
     if not files:
         enter_filename = True
     if not enter_filename:
@@ -29,13 +30,14 @@ def choose_file():
             enter_filename = True
         else:
             filename = files[index - 1]
-            items = load_list("../data/"+filename)
+            filename = filepath + filename
+            items = load_list(filename)
     if enter_filename:
         filename = get_string("Choose filename","filename")
         if not filename.endswith(".lst"):
             filename += ".lst"
         items = []
-    filename = "../data/" + filename
+    filename = filepath + filename
     return filename,items
 
 def load_list(filename):
