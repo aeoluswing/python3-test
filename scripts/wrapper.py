@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-def deco_1(func):
-    print("deco_1")
-    print("deco_1_plus")
+def decorator_1(func):
+    print("decorator_1")
+    print("decorator_1_plus")
     def wrapper(a,b):
-        print("deco_1_wrapper")
+        print("decorator_1_wrapper")
         func(a,b)
         print("wrapper_1")
     return wrapper
 
-def deco_2(func):
-    print("deco_2")
-    print("deco_2_plus")
+def decorator_2(func):
+    print("decorator_2")
+    print("decorator_2_plus")
     def wrapper(a,b):
-        print("deco_2_wrapper")
+        print("decorator_2_wrapper")
         func(a,b)
         print("wrapper_2")
     return wrapper
 
-@deco_1
-@deco_2
+@decorator_1
+@decorator_2
 def addFunc(a,b):
     print("result is ",(a + b))
 
