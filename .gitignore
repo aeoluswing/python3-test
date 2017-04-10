@@ -132,3 +132,11 @@ crashlytics-build.properties
 fabric.properties
 .idea/
 python3-test.iml
+!/data/forenames.txt
+!/data/phone.txt
+/data/forenames.txt
+.DS_Store
+scripts/.DS_Store
+/data/phone.txt
+/data/surnames.txt
+/data/users.txt
