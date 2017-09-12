@@ -6,7 +6,8 @@ class A():
         print("class name: ",self.__class__.__name__)
 
 class B(A):
-    pass
+    def __init__(self):
+        return super(__class__,self).__init__()
 
 class C(A):
     def __init__(self):
@@ -19,3 +20,4 @@ class D(B,C):
 if __name__=='__main__':
     objd = D()
     print(objd.__class__.__mro__)
+    print("result:",issubclass(B,D))
